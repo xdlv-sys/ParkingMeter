@@ -35,14 +35,18 @@ JNIEXPORT jobject JNICALL Java_xd_dl_job_ParkNative_getParkedCarInfo
 	jfieldID fMoneyVal = (env)->GetFieldID(objcls,"fMoney","F");
 	
 	(env)->SetObjectField(obj,str,env->NewStringUTF("2017-10-10 00:00:001"));
-	(env)->SetObjectField(obj,strCarLicense,env->NewStringUTF("?A12345"));
 	
 	char *path = new char[100];
-	sprintf(path, "C:\\Work\\C++\\ParkingMeter\\%d.png",carOrder);
-	
+	sprintf(path, "%d.jpg",carOrder);
 	(env)->SetObjectField(obj,strInPic,env->NewStringUTF(path));
+	
+	char *license = new char[8];
+	sprintf(license,"?A1234%d",carOrder);
+	(env)->SetObjectField(obj,strCarLicense,env->NewStringUTF(license));
+	
 	(env)->SetIntField(obj,iParkedTimeVal,162);
-	(env)->SetIntField(obj,iReturnVal,0);
+	
+	(env)->SetIntField(obj,iReturnVal,carOrder > 3 ? 11 : 0);
 	(env)->SetFloatField(obj,fMoneyVal,0.01f);
 	
 	return obj;
