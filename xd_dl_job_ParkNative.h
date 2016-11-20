@@ -26,20 +26,29 @@ JNIEXPORT jint JNICALL Java_xd_dl_job_ParkNative_unitialized
 /*
  * Class:     xd_dl_job_ParkNative
  * Method:    getParkedCarInfo
- * Signature: (ILjava/lang/String;IZI)Lxd/dl/job/ParkedCarInfo;
+ * Signature: (ILjava/lang/String;IIILjava/lang/String;Ljava/lang/String;)Lxd/dl/job/ParkedCarInfo;
  */
 JNIEXPORT jobject JNICALL Java_xd_dl_job_ParkNative_getParkedCarInfo
-  (JNIEnv *, jclass, jint, jstring, jint, jboolean, jint);
+  (JNIEnv *, jclass, jint, jstring, jint, jint, jint, jstring, jstring);
 
 /*
  * Class:     xd_dl_job_ParkNative
  * Method:    payParkCarFee
- * Signature: (ILjava/lang/String;Ljava/lang/String;F)I
+ * Signature: (ILjava/lang/String;Ljava/lang/String;FLjava/lang/String;Ljava/lang/String;I)I
  */
 JNIEXPORT jint JNICALL Java_xd_dl_job_ParkNative_payParkCarFee
-  (JNIEnv *, jclass, jint, jstring, jstring, jfloat);
+  (JNIEnv *, jclass, jint, jstring, jstring, jfloat, jstring, jstring, jint);
+
+/*
+ * Class:     xd_dl_job_ParkNative
+ * Method:    getLeftParkInfo
+ * Signature: ()[Lxd/dl/job/LeftParkInfo;
+ */
+JNIEXPORT jobjectArray JNICALL Java_xd_dl_job_ParkNative_getLeftParkInfo
+  (JNIEnv *, jclass);
 
 #ifdef __cplusplus
 }
 #endif
 #endif
+
