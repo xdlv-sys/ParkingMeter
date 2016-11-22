@@ -29,7 +29,7 @@ JNIEXPORT jobject JNICALL Java_xd_dl_job_ParkNative_getParkedCarInfo
     
     jfieldID str = (env)->GetFieldID(objcls,"sInTime","Ljava/lang/String;");
 	jfieldID strCarLicense = (env)->GetFieldID(objcls,"sCarLicense","Ljava/lang/String;");
-	jfieldID strId = (env)->GetFieldID(objcls,"sId","Ljava/lang/String;");
+	jfieldID strId = (env)->GetFieldID(objcls,"sID","Ljava/lang/String;");
 	jfieldID strInPic = (env)->GetFieldID(objcls,"sInPic","Ljava/lang/String;");
 	jfieldID iParkedTimeVal = (env)->GetFieldID(objcls,"iParkedTime","I");
 	jfieldID iReturnVal = (env)->GetFieldID(objcls,"iReturn","I");
@@ -37,12 +37,16 @@ JNIEXPORT jobject JNICALL Java_xd_dl_job_ParkNative_getParkedCarInfo
 	
 	(env)->SetObjectField(obj,str,env->NewStringUTF("2017-10-10 00:00:001"));
 	
-	char *path = new char[8];
-	sprintf(path, "%d.jpg",carOrder);
-	(env)->SetObjectField(obj,strInPic,env->NewStringUTF(path));
+
+	if (carOrder != 3){
+		char *path = new char[8];
+	    sprintf(path, "%d.jpg",carOrder);
+	    (env)->SetObjectField(obj,strInPic,env->NewStringUTF(path));
+	}
+	
 	
 	char *license = new char[8];
-	sprintf(license,"ËÕA1234%d",carOrder);
+	sprintf(license,"HA1234%d",carOrder);
 	(env)->SetObjectField(obj,strCarLicense,env->NewStringUTF(license));
 	
 	char *sid = new char[8];
@@ -79,7 +83,7 @@ JNIEXPORT jobjectArray JNICALL Java_xd_dl_job_ParkNative_getLeftParkInfo
   	jobjectArray rets = env->NewObjectArray(2,objcls,NULL);
   	for (int i=0;i<2;i++){
   		jobject obj = env->AllocObject(objcls);
-  		(env)->SetObjectField(obj,strParkName,env->NewStringUTF("ÄÏ¾©De"));
+  		(env)->SetObjectField(obj,strParkName,env->NewStringUTF("WO_DE"));
 		(env)->SetIntField(obj,iSumNum,100);
 		(env)->SetIntField(obj,iLeftNum,50);
 		(env)->SetIntField(obj,iCarProp,i + 1);
