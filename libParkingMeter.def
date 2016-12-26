@@ -1,6 +1,8 @@
 EXPORTS
-    Java_xd_dl_job_ParkNative_getLeftParkInfo @1
-    Java_xd_dl_job_ParkNative_getParkedCarInfo @2
-    Java_xd_dl_job_ParkNative_initialized @3
-    Java_xd_dl_job_ParkNative_payParkCarFee @4
-    Java_xd_dl_job_ParkNative_unitialized @5
+    Java_xd_dl_job_ParkNative_getCarportInfo @1
+    Java_xd_dl_job_ParkNative_getLeftParkInfo @2
+    Java_xd_dl_job_ParkNative_getParkedCarInfo @3
+    Java_xd_dl_job_ParkNative_initialized @4
+    Java_xd_dl_job_ParkNative_payCarportRent @5
+    Java_xd_dl_job_ParkNative_payParkCarFee @6
+    Java_xd_dl_job_ParkNative_unitialized @7
