@@ -113,8 +113,8 @@ JNIEXPORT jobjectArray JNICALL Java_xd_dl_job_ParkNative_getLeftParkInfo
 	jfieldID fRentMoney = (env)->GetFieldID(objcls,"fRentMoney","F");
 	jfieldID sParkName = (env)->GetFieldID(objcls,"sParkName","Ljava/lang/String;");
 	
-  	jobjectArray rets = env->NewObjectArray(2,objcls,NULL);
-  	for (int i=0;i<2;i++){
+  	jobjectArray rets = env->NewObjectArray(3,objcls,NULL);
+  	for (int i=0;i<3;i++){
   		jobject obj = env->AllocObject(objcls);
   		(env)->SetObjectField(obj,sCarportNum,env->NewStringUTF("sCarportNum" + i));
   		(env)->SetObjectField(obj,sRoomNum,env->NewStringUTF("sRoomNum" + i));
@@ -122,13 +122,13 @@ JNIEXPORT jobjectArray JNICALL Java_xd_dl_job_ParkNative_getLeftParkInfo
   		(env)->SetObjectField(obj,sAddress,env->NewStringUTF("sAddress" + i));
   		(env)->SetObjectField(obj,sPhoneNumber,env->NewStringUTF("sPhoneNumber" + i));
   		(env)->SetObjectField(obj,sPosition,env->NewStringUTF("sPosition" + i));
-  		(env)->SetObjectField(obj,sStartDate,env->NewStringUTF("sStartDate" + i));
-  		(env)->SetObjectField(obj,sEndDate,env->NewStringUTF("sEndDate" + i));
-  		(env)->SetFloatField(obj,fDeposit,0.01f);
+  		(env)->SetObjectField(obj,sStartDate,env->NewStringUTF("2016-1-1"));
+  		(env)->SetObjectField(obj,sEndDate,env->NewStringUTF("2016-12-31"));
+  		(env)->SetFloatField(obj,fDeposit,0.01);
   		(env)->SetBooleanField(obj,bTemporary, i == 0);
   		(env)->SetObjectField(obj,sRemark,env->NewStringUTF("sRemark" + i));
   		(env)->SetObjectField(obj,sRentName,env->NewStringUTF("sRentName" + i));
-  		(env)->SetFloatField(obj,fRentMoney,0.01);
+  		(env)->SetFloatField(obj,fRentMoney,0.01 * (i + 1));
   		(env)->SetObjectField(obj,sParkName,env->NewStringUTF("sParkName" + i));
 		
   		(env)->SetObjectArrayElement(rets, i, obj);
